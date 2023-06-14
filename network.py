@@ -74,14 +74,11 @@ class operate():
             loss = 0.
             for j in range(3):
                 if j == 0:
-                    loss_main = criterion(output[j], y_target)
-                    loss = loss_main
+                    loss += 1.0 * criterion(output[j], y_target) 
                 elif j == 1:
-                    loss_Spe = criterion(output[j], y_target)
-                    loss += loss_Spe / (loss_Spe / loss_main).detach()
+                    loss += 0.3 * criterion(output[j], y_target) 
                 elif j == 2:
-                    loss_Spa = criterion(output[j], y_target)
-                    loss += loss_Spa / (loss_Spa / loss_main).detach()
+                    loss += 0.9 * criterion(output[j], y_target)  
 
 
             inf_loss += loss.float()
