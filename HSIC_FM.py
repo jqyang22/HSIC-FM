@@ -7,7 +7,6 @@ from einops.layers.torch import Reduce
 def exists(val):
     return val is not None
 
-
 class LayerNorm(nn.Module):
     def __init__(self, dim, eps = 1e-5):
         super().__init__()
@@ -96,7 +95,6 @@ class GlobalMHRA(nn.Module):
 
         q = q * self.scale
         sim = einsum('b h i d, b h j d -> b h i j', q, k)
-
 
         attn = sim.softmax(dim = -1)
 
@@ -287,12 +285,8 @@ class FullModel(nn.Module):
 
         output_Spa = self.to_logits_outputSpa(x)
 
-
         x = self.to_logits1(x)
         x_Spa = x
-
-
-
 
         x_spe = torch.transpose(x_spe, 0, 2).contiguous()
         x_spe = torch.transpose(x_spe, 1, 2).contiguous()
@@ -303,7 +297,6 @@ class FullModel(nn.Module):
 
         Down2 = Down2.cuda()
         x_RNN = torch.cat([x_RNN, Down2], 1)
-
 
         x_RNN = x_RNN.view(x_RNN.size(0), -1)
 
