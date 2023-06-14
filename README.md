@@ -6,7 +6,7 @@ Install Pytorch 1.9.0 with Python 3.8.
 
 # Usage
 Please first change the path in the code, and then run:   
-python ./main.py
+python ./main.py --lstm
 
 # Paper
 Overcoming the Barrier of Incompleteness: A Hyperspectral Image Classification Full Model  
