@@ -61,12 +61,9 @@ if __name__ == "__main__":
 #################################### load dataset #######################################
 a=load()
 
-'''Num of trn pixels should be divisible by batchsize and n_gpu (If the remainder is 1, an error occurs)
-   'NoWeight' represents directly adding without weight.
-'''
 dataID = 6
 NUM_CLASSES = 13
-StorageLocation = './FullModel/Result/2/Trn-10/2D_Middle/Depth2Fusion/NoWeight/'
+StorageLocation = './Result/'
 
 
 if not os.path.isdir(StorageLocation):
